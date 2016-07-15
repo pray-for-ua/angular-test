@@ -1,6 +1,6 @@
 
 export default app => {
-    app.run(['$httpBackend','itemsService', runFn]);
+    app.run(['$httpBackend', 'ServerDataModel', runFn]);
 
     function runFn($httpBackend, itemsService) {
         $httpBackend.whenGET('/items').respond(function(method, url, data) {

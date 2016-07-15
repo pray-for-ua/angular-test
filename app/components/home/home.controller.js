@@ -1,8 +1,12 @@
 export default class HomeController {
-  constructor($scope) {
-    $scope.name = 'home';
+  constructor($scope, $stateParams, itemsService) {
+    $scope.initData = () => {
+      itemsService.query().then((res) => {
+        $scope.items = res.data;
+      });
+    }; 
   }
 }
 
-HomeController.$inject = ['$scope'];
+HomeController.$inject = ['$scope', '$stateParams', 'itemsService'];
 
