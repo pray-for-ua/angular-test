@@ -1,5 +1,5 @@
-import template from './create.html';
-import controller from './create.controller';
+import template from './createEdit.html';
+import controller from './createEdit.controller';
 
 let createComponent = function () {
   return {
@@ -7,7 +7,7 @@ let createComponent = function () {
     scope: {},
     template,
     controller,
-    controllerAs: 'createCtrl',
+    controllerAs: 'createEditCtrl',
     bindToController: true
   };
 };

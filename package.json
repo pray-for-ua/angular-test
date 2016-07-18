@@ -51,6 +51,7 @@
     "jscs": "^2.3.5",
     "jscs-loader": "^0.2.0",
     "karma-chai": "^0.1.0",
+    "lodash": "^4.13.1",
     "ng-annotate-loader": "0.0.10",
     "ngrequire-webpack-plugin": "^2.0.23",
     "node-bourbon": "^4.2.3",

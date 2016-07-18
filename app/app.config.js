@@ -10,8 +10,8 @@ export default app => {
                 url: '/items/?{view}',
                 template: '<home></home>'
             })
-            .state('add/create', {
-                url: '/items/{action}/',
+            .state('createEdit', {
+                url: '/items/{action}/?id',
                 template: '<create-edit></create-edit>'
             });
 	}

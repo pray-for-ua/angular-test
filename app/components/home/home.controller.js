@@ -1,5 +1,6 @@
 export default class HomeController {
   constructor($scope, $stateParams, itemsService) {
+    $scope.search = '';
     $scope.initData = () => {
       $scope.stateParams = $stateParams;
       $scope.view = $stateParams.view;

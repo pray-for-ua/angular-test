@@ -1,5 +1,5 @@
-<navbar></navbar>
+<navbar search="search"></navbar>
 <md-content ng-init="initData()" layout="row" layout-align="center center" layout-padding layout-wrap ng-switch="view">
-    <table ng-switch-when="table" items="items"></table>
-    <tiles ng-switch-when="tiles" items="items"></tiles>
+    <table ng-switch-when="table" items="items" search="navBarCtrl.searchText"></table>
+    <tiles ng-switch-when="tiles" items="items" search="navBarCtrl.searchText"></tiles>
 </md-content>

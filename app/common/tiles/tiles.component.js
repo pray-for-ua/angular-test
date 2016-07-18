@@ -5,7 +5,8 @@ let tilesComponent = function () {
   return {
     restrict: 'E',
     scope: {
-    	items: '='
+    	items: '=',
+        search: '='
     },
     template,
     controller,

@@ -1,22 +1,24 @@
+import _ from 'lodash';
+
 let ServerDataModelService = function ServerDataModelServiceFn () {
   this.data = [
         {
-            itemid: 1,
-            opponent: "Tech",
-            date: new Date(2014, 4, 7),
-            attendance: 2038
+            id: 1,
+            name: "Tech",
+            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...',
+            email: 'ddd@ddd'
         },
         {
-            itemid: 2,
-            opponent: "State",
-            date: new Date(2014, 4, 13),
-            attendance: 1655
+            id: 2,
+            name: "State",
+            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...',
+            email: 'fff@fff'
         },
         {
-            itemid: 3,
-            opponent: "College",
-            date: new Date(2014, 4, 20),
-            attendance: 1897
+            id: 3,
+            name: "College",
+            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...',
+            email: 'ddd@ggg'
         }        
     ];
     
@@ -28,16 +30,16 @@ let ServerDataModelService = function ServerDataModelServiceFn () {
         this.data = data;
     };
    
-    this.findOne = function(itemid) {
+    this.findOne = function(id) {
         // find the item that matches that id
-        var list = $.grep(this.getData(), function(element, index) {
-            return (element.itemid == itemid);
+        var list = _.find(this.getData(), function(element, index) {
+            return (element.id == id);
         });
-        if(list.length === 0) {
+        if(!list) {
             return {};
         }
         // even if list contains multiple items, just return first one
-        return list[0];
+        return list;
     };
    
     this.findAll = function() {
@@ -65,27 +67,24 @@ let ServerDataModelService = function ServerDataModelServiceFn () {
     this.addOne = function(dataItem) {
         // must calculate a unique ID to add the new data
         var newId = this.newId();
-        dataItem.itemid = newId;
+        dataItem.id = newId;
         this.data.push(dataItem);
         return dataItem;
     };
     
     // return an id to insert a new data item at
     this.newId = function() {
-        // find all current ids
-        var currentIds = $.map(this.getData(), function(dataItem) { return dataItem.itemid; });
         // since id is numeric, and we will treat like an autoincrement field, find max
-        var maxId = Math.max.apply(Math, currentIds);
-        // increment by one
-        return maxId + 1;
+        var maxIdObj = _.maxBy(this.getData(), 'id');
+        return maxIdObj.id + 1;
     };
     
-    this.updateOne = function(itemid, dataItem) {
+    this.updateOne = function(id, dataItem) {
         // find the item that matches that id
         var items = this.getData();
         var match = null;
         for (var i=0; i < items.length; i++) {
-            if(items[i].itemid == itemid) {
+            if(items[i].id == id) {
                 match = items[i];
                 break;
             }
@@ -97,12 +96,12 @@ let ServerDataModelService = function ServerDataModelServiceFn () {
         return match;
     };
     
-    this.deleteOne = function(itemid) {
+    this.deleteOne = function(id) {
         // find the item that matches that id
         var items = this.getData();
         var match = false;
         for (var i=0; i < items.length; i++) {
-            if(items[i].itemid == itemid) {
+            if(items[i].id == id) {
                 match = true;
                 items.splice(i, 1);
                 break;

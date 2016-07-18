@@ -4,7 +4,7 @@ import controller from './navbar.controller';
 let navbarComponent = function () {
   return {
     restrict: 'E',
-    scope: {},
+    scope: false,
     template,
     controller,
     controllerAs: 'navBarCtrl',

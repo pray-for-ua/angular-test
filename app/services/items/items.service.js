@@ -9,8 +9,8 @@ let itemsService = function itemsServiceFn ($http) {
         },
         // making save dual-function like default ngResource behavior (no separate update w/PUT)
         save: function(data) {
-            if(angular.isDefined(data.itemid)) {
-                return $http.post('/items/' + data.itemid, data);
+            if(angular.isDefined(data.id)) {
+                return $http.post('/items/' + data.id, data);
             } else {
                 return $http.post('/items', data);
             }

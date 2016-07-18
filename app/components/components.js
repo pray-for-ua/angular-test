@@ -1,4 +1,4 @@
-import createComponent from './createEdit/create';
+import createComponent from './createEdit/createEdit';
 import homeComponent from './home/home';
 
 export default app => {
