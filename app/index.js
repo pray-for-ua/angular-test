@@ -7,10 +7,8 @@ import angularMaterial from "angular-material";
 import appComponents from './components/components.js';
 import commonComponents from './common/components.js';
 import appServices from './services/services.js';
-import appConfiguration from './app.config';
 import appMockBackend from "./app.mockbackend";
-
-
+import appConfiguration from './app.config';
 
 const app = angular.module('app', ['ngMockE2E', 'ngResource', 'ngMaterial', angularUIRouter]);
 
@@ -27,7 +25,7 @@ appServices(app);
 // Components must be declared first since
 // Routes reference controllers that will be bound to route templates.
 // Router Configuration
-// appConfiguration(app);
+appConfiguration(app);
 
 // We will mock $httpBackend, capturing routes and returning data
 appMockBackend(app);

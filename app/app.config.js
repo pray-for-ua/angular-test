@@ -3,18 +3,16 @@ export default app => {
 
 	function configFn($stateProvider, $urlRouterProvider) {
 		// For any unmatched url, redirect to /home
-        $urlRouterProvider.otherwise("/home");
+        $urlRouterProvider.otherwise('/items/?view=table');
 
         $stateProvider
-            .state('home', {
-                url: "/home",
-                controller : "",
-                templateUrl: "components/home/home.html"
+            .state('items', {
+                url: '/items/?{view}',
+                template: '<home></home>'
             })
-            // .state('details', {
-            //     url: "/details",
-            //     controller : "",
-            //     templateUrl: "components/home/details.html"
-            // });
+            .state('add/create', {
+                url: '/items/{action}/',
+                template: '<create-edit></create-edit>'
+            });
 	}
 }

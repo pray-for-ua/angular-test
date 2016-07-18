@@ -1,0 +1,5 @@
+<navbar></navbar>
+<md-content ng-init="initData()" layout="row" layout-align="center center" layout-padding layout-wrap ng-switch="view">
+    <table ng-switch-when="table" items="items"></table>
+    <tiles ng-switch-when="tiles" items="items"></tiles>
+</md-content>

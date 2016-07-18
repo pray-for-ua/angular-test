@@ -1,3 +1,16 @@
-<nav> 
-  <h1>{{ navBarCtrl.name }} NAV BAR NAV BAR</h1>
-</nav>
+<div class="main-fab">
+	<md-button ng-href="/items/create/" class="md-fab md-accent">+</md-button>
+	<md-button ng-click="onClickBtn('table')" aria-label="description">table</md-button>
+	<md-button ng-click="onClickBtn('tiles')" aria-label="description">tiles</md-button>
+</div>
+<md-toolbar layout="column" class="md-tall" ng-init="initFn()"><span flex="flex"></span>
+  <div class="md-toolbar-tools">
+    <div layout="row" flex="flex" class="fill-height">
+      <div ng-hide="toggleSearch" class="md-toolbar-item md-breadcrumb"><span ng-click="toggleSearch = !toggleSearch">Angular Material Table</span></div><span flex="flex" ng-hide="toggleSearch"></span>
+      <md-input-container flex="flex" style="padding-left:88px;" ng-show="toggleSearch">
+        <input type="text" ng-model="search"/>
+      </md-input-container>
+      <div layout="row" class="md-toolbar-item md-tools"><a href="#" ng-click="toggleSearch = !toggleSearch" class="md-button md-default-theme"><i class="ion-android-search"></i></a></div>
+    </div>
+  </div>
+</md-toolbar>
