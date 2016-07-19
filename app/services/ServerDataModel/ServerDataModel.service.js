@@ -45,6 +45,18 @@ let ServerDataModelService = function ServerDataModelServiceFn () {
     this.findAll = function() {
         return this.getData();
     };
+
+    this.searchItems = function(searchParams) {
+        console.log(searchParams);
+        let list = _.map(this.getData(), (obj) => {
+            return _.mapKeys(obj, (value) => {
+                if (_.isString(value) && value.search(`/${this.keywords}/i`) !== -1) {
+                    console.log(this.keywords)
+                    return obj;
+                }
+            });
+        });
+    };
     
     // options parameter is an object with key value pairs
     // in this simple implementation, value is limited to a single value (no arrays)

@@ -8,6 +8,13 @@ export default app => {
             return [200, items, {}];
         });
 
+        $httpBackend.whenGET('/items/search').respond(function(method, url, data) {
+            let params = angular.fromJson(data);
+            console.log(params);
+            let items = itemsService.searchItems(params);
+            return [200, items, {}];
+        });
+
         $httpBackend.whenGET(/\/items\/\d+/).respond(function(method, url, data) {
             // parse the matching URL to pull out the id (/items/:id)
             let itemid = url.split('/')[2];

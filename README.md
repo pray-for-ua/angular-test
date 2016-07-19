@@ -1,8 +1,4 @@
-# angular-starter-es6-webpack 
-[![Join the chat at https://gitter.im/angularclass/NG6-starter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/thelarkinn/angular-starter-es6-webpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-
-This is an Angular Starter App with component and service generators using gulp for easy component development. Uses Karma-Mocha-Chai as test suit and Babel Loader and Webpack for ES6
+# angular-test-task
 
 ## Instructions for Installation
 1. Fork and Clone Repository.
@@ -78,45 +74,3 @@ This app comes with some helpful and generators for creating a new component/ser
 
 ### Main/Entry File To the Project
 `index.js` is the main entry file which serves as the total include point for all of your components, services, assets, and styles. 
-
-Notice that throughout the project, that the angular setter/getter is called once, and is assigned to a constant which is passed through each of the dependancy trees so that it is exposed to the rest of the imported/exported components. 
-
-_Why?_ Because this makes your components more *modular*, allowing whatever `angular.module` object to be assigned to the exported component/component set.
-
-```javascript
-// index.js
-// Angular & Router ES6 Imports
-import angular from 'angular';
-import angularUIRouter from 'angular-ui-router';
-import appComponents from './components/components.js';
-import commonComponents from './common/components.js';
-import appServices from './services/services.js';
-import appConfiguration from './app.config';
-
-// Single Style Entry Point
-import './index.scss';
-
-if (ENVIRONMENT === 'test') {
-  console.log('ENV:', ENVIRONMENT);
-  require('angular-mocks/angular-mocks');
-}
-
-const app = angular.module('app', ['ui.router']);
-
-// Components Entrypoint
-appComponents(app);
-
-// Common Components Entrypoint
-commonComponents(app);
-
-// App Services Entrypoint
-appServices(app);
-
-// Router Configuration
-// Components must be declared first since
-// Routes reference controllers that will be bound to route templates.
-// appConfiguration(app);
-
-```
-
-### 

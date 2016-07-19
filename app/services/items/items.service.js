@@ -15,6 +15,9 @@ let itemsService = function itemsServiceFn ($http) {
                 return $http.post('/items', data);
             }
         },
+        search: function(data) {
+            return $http.get('/items/search', data);
+        },
         delete: function(id) {
             return $http.delete('/items/' + id);
         }

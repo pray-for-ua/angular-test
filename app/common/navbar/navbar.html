@@ -8,7 +8,7 @@
     <div layout="row" flex="flex" class="fill-height">
       <div ng-hide="toggleSearch" class="md-toolbar-item md-breadcrumb"><span ng-click="toggleSearch = !toggleSearch">Angular Material Table</span></div><span flex="flex" ng-hide="toggleSearch"></span>
       <md-input-container flex="flex" style="padding-left:88px;" ng-show="toggleSearch">
-        <input type="text" ng-model="navBarCtrl.searchText"/>
+        <input type="text" ng-model="navBarCtrl.keywords" ng-change="searchItems()"/>
       </md-input-container>
       <div layout="row" class="md-toolbar-item md-tools"><a href="#" ng-click="toggleSearch = !toggleSearch" class="md-button md-default-theme"><i class="ion-android-search"></i></a></div>
     </div>
